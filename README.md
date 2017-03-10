@@ -5,20 +5,21 @@
 import numpy as np
 import xgboost as xgb
 import tuning_xgboost
-X_train		 = np.random.rand(100,4)
-y_train		 = np.random.randint(2,size=100)
-grid1  		 = {'n_estimators' : [50, 100, 200], 'learning_rate' : [0.1, 0.2, 0.3]}
-grid2 		 = {'max_depth' : [2,3,4], 'min_child_weight' : [4,5]}
-grid3 		 = {'colsample_bylevel' : [0.7, 0.8, 0.9], 'subsample' : [0.5, 0.6, 0.7]}
-grid4 		 = {'scale_pos_weight' : [1,2,5]}
-hyperlist_to_try = [grid1, grid2,grid3,grid4]
-booster 	 = xgb.XGBClassifier()
+#
+X_train		 	= np.random.rand(100,4)
+y_train		 	= np.random.randint(2,size=100)
+grid1  		 	= {'n_estimators' : [50, 100, 200], 'learning_rate' : [0.1, 0.2, 0.3]}
+grid2 		 	= {'max_depth' : [2,3,4], 'min_child_weight' : [4,5]}
+grid3 		 	= {'colsample_bylevel' : [0.7, 0.8, 0.9], 'subsample' : [0.5, 0.6, 0.7]}
+grid4 		 	= {'scale_pos_weight' : [1,2,5]}
+hyperlist_to_try 	= [grid1, grid2,grid3,grid4]
+booster 	 	= xgb.XGBClassifier()
 
 tuned_estimator  = tuning_xgboost.grid_search_tuning(X_train,y_train,hyperlist_to_try,booster)
 tuned_parameter  = tuned_estimator.get_params()
-#you also pass more parameters to GridSearchCV of course.
+#you can also pass more parameters which will be fed into GridSearchCV().
 ```
-* The function will first run grid GridSearchCV on grid1, store the best hyperparameters, then proceed to run GridSearchCV on grid2, store the best parameters from grid1 and grid2, then proceed to run GridSearchCV on grid3, and so on. The overall best booster be returned in the end.
+* *grid_search_tuning* will first run grid GridSearchCV on grid1, store the best hyperparameters, then proceed to run GridSearchCV on grid2, store the best parameters from grid1 and grid2, then proceed to run GridSearchCV on grid3, and so on. The overall best booster be returned in the end.
 * If you want, the parameters and the results will be plotted (if you don't optimize more than 2 at the same time)
 
 ## What is this for?

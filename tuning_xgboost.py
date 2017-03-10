@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+"""
+March 2016
+author: teezeit
+This script optimizes parameters for xgboost using greeedy gridsearch + crossvalidation
+"""
 ########### IMPORTS ##########################################################
-
 import numpy as np
-import pandas as pd
-import xgboost as xgb
 from sklearn.model_selection import GridSearchCV   #Perforing grid search
 import matplotlib.pyplot as plt
 #############  FUNCTION DEFINITIONS ##########################################

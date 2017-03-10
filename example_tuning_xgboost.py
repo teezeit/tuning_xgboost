@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 March 2016
-tobias hoelzer
+author: teezeit
 This script optimizes parameters for xgboost using greeedy gridsearch + crossvalidation
 """
 # Imports
