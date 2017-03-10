@@ -1,7 +1,19 @@
 # tuning_xgboost
 ## What is this for?
-[tuning_xgboost.py]((https://github.com/teezeit/tuning_xgboost/blob/master/example_tuning_xgboost.py)) helps you using consecutive (greedy) gridsearch with cross validation to tune xgboost hyperparameters in python. This is useful, when the hyperparameter space is too big or you don't really want to dig too deep into how this all works.
-I recommend using pairwise gridsearch. Just define a list of values you like to try and give it to tuning_xgboost.grid_search_tuning(). It returns the trained booster with optimized hyperparameters. If you want it also prints the Status on the Screen and Plots the Results. Awesome :-).
+[tuning_xgboost.py](https://github.com/teezeit/tuning_xgboost/blob/master/tuning_xgboost.py) helps you using consecutive (greedy) gridsearch with cross validation to tune xgboost hyperparameters in python. This is useful, when the hyperparameter space is too big or you don't really want to dig too deep into how this all works.
+I recommend using pairwise gridsearch. If you have no idea what you are doing, use those pairs:
+1. stepsize
+  * eta = n_estimators
+  * learning_rate
+2. model complexity
+  * max_depth
+  * min_child_weight
+3. randomness
+  * subsample
+  * colsample_bytree
+4. scaling of positive data
+  * scale_pos_weight
+ Just define a list of values you like to try and give it to tuning_xgboost.grid_search_tuning(). It returns the trained booster with optimized hyperparameters. If you want it also prints the Status on the Screen and Plots the Results. Awesome :-).
 
 All information and part of the code is taken from [Jesse Steinweg-Woods](https://jessesw.com/XG-Boost/), [Jason Brownlee](http://machinelearningmastery.com/tune-learning-rate-for-gradient-boosting-with-xgboost-in-python/) and [Aarshay Jain](https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/). Thank you!
 
