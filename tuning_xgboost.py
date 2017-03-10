@@ -65,6 +65,7 @@ def grid_search_tuning(X,y,hyperparameter_grids,booster,
                        plotting             = True):
     '''
     Performs consecutive (greedy) GridsearchCV over list of dictionaries of hyperparameters.
+    Returns the best estimator 'tuned_estimator'. Best hyperparameters can be found using tuned_estimator.get_params()
     
     Parameters
     ----------
